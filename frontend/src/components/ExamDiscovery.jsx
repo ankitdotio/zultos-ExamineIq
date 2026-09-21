@@ -27,11 +27,7 @@ export default function ExamDiscovery() {
     const fetchExams = async () => {
       try {
         const response = await getAllExams();
-
-console.log("EXAMS API RESPONSE:", response);
-console.log("EXAMS ARRAY:", Array.isArray(response) ? response : response.data || []);
-
-setExams(Array.isArray(response) ? response : response.data || []);
+        setExams(Array.isArray(response) ? response : response.data || []);
       } catch (err) {
         setError(err.message || 'Failed to load exams');
       } finally {

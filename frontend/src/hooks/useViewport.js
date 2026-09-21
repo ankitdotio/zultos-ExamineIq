@@ -2,14 +2,28 @@
 
 import { useEffect, useState } from 'react';
 
-/** Tracks window width so components can compute their own responsive breakpoints. */
+/**
+ * Tracks the browser width.
+ *
+ * The initial value is fixed so the server-rendered HTML
+ * and the first client render use the same value.
+ * After mounting, the real browser width is applied.
+ */
 export default function useViewport() {
-  const [width, setWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1280);
+  const [width, setWidth] = useState(1280);
 
   useEffect(() => {
-    const onResize = () => setWidth(window.innerWidth);
-    window.addEventListener('resize', onResize);
-    return () => window.removeEventListener('resize', onResize);
+    const updateWidth = () => {
+      setWidth(window.innerWidth);
+    };
+
+    updateWidth();
+
+    window.addEventListener('resize', updateWidth);
+
+    return () => {
+      window.removeEventListener('resize', updateWidth);
+    };
   }, []);
 
   return width;
