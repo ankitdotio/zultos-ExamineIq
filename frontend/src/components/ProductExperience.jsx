@@ -9,8 +9,8 @@ export default function ProductExperience() {
   const isMobile = width < 1040;
   const isTablet = width >= 1040 && width < 1180;
   const paddingX = isMobile ? 20 : isTablet ? 28 : 32;
-  const discoveryPadY = isMobile ? 56 : 88;
-  const h2Size = isMobile ? 30 : 38;
+  const discoveryPadY = isMobile ? 48 : 64;
+  const h2Size = isMobile ? 28 : 34;
   const introSpacing = isMobile ? 40 : 56;
   const topBarPadX = isMobile ? 18 : 24;
   const panelPadX = isMobile ? 20 : 28;

@@ -112,12 +112,12 @@ function ProofCard({ point, delay }) {
     <div
       ref={ref}
       style={style}
-      className="bg-white border border-border rounded-card p-6 transition-all duration-200 hover:shadow-[0_6px_16px_rgba(23,40,74,0.10)] hover:border-[#C9CFD8] hover:-translate-y-[3px] group"
+      className="bg-white border border-border rounded-card p-5 transition-all duration-200 hover:shadow-[0_6px_16px_rgba(23,40,74,0.10)] hover:border-[#C9CFD8] hover:-translate-y-[3px] group"
     >
       <div className="w-10 h-10 rounded-[10px] bg-surface-alt flex items-center justify-center mb-4 transition-transform group-hover:scale-[1.06]">
         {point.icon}
       </div>
-      <div className="font-heading text-[19px] font-bold text-navy mb-1">{point.title}</div>
+      <div className="font-heading text-[17px] font-bold text-navy mb-1">{point.title}</div>
       {point.verify && <div className="text-[11px] text-text-muted italic mb-2.5">[VERIFY BEFORE DEVELOPMENT]</div>}
       {point.micro}
       <div className="text-sm leading-[1.55] text-text-secondary">{point.desc}</div>

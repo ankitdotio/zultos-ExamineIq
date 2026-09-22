@@ -1,4 +1,5 @@
-const API_URL = (process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000').replace(/\/$/, '');
+const API_URL = (process.env.NEXT_PUBLIC_API_URL || '').replace(/\/$/, '');
+export const API_CONFIGURED = Boolean(API_URL);
 
 export class ApiError extends Error {
   constructor(message, status) {
@@ -9,6 +10,10 @@ export class ApiError extends Error {
 }
 
 export const apiCall = async (endpoint, options = {}) => {
+  if (!API_CONFIGURED) {
+    throw new ApiError('API is not configured for this environment.', 0);
+  }
+
   const token = typeof window !== 'undefined' ? localStorage.getItem('token') : null;
   const config = {
     headers: {

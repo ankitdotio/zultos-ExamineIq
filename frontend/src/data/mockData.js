@@ -1,7 +1,7 @@
 // Placeholder/mock data — replace with real API-backed content during development.
 
 export const NAV_ITEMS = [
-  { label: 'Exams', href: '#exams' },
+  { label: 'Exams', href: '/exams' },
   { label: 'How It Works', href: '#how-it-works' },
   { label: 'Scholarship', href: '#scholarship' },
   { label: 'Resources', href: '#resources' },
@@ -47,7 +47,7 @@ export const SAMPLE_EXAMS = [
 export const POPULAR_SEARCHES = ['SSC CGL', 'UPSC CSE', 'IBPS PO', 'GATE', 'NEET'];
 
 // [VERIFY BEFORE DEVELOPMENT — final taxonomy]
-export const CATEGORIES = ['UPSC', 'SSC', 'Banking', 'Railways', 'Defence', 'Engineering', 'State Exams', 'Other Competitive Exams'];
+export const CATEGORIES = ['SSC', 'Banking', 'Defence', 'Railway', 'UPSC', 'Teaching', 'State Exams', 'Other'];
 
 // Short cycling preview shown in the hero mockup (Practice -> Evaluate demo)
 export const HERO_DEMO = [

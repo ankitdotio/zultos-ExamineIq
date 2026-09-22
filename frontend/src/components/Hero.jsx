@@ -13,8 +13,8 @@ export default function Hero() {
   const paddingX = isMobile ? 20 : isTablet ? 28 : 32;
   const heroStack = width < 860;
 
-  const h1Size = heroStack ? 34 : 52;
-  const bodySize = heroStack ? 16 : 18;
+  const h1Size = heroStack ? 32 : 46;
+  const bodySize = heroStack ? 15 : 16;
 
   const reducedMotion = useReducedMotion();
   const [visualRef, visible] = useOnScreen({ threshold: 0.2 });
@@ -51,11 +51,11 @@ export default function Hero() {
       >
         {/* HERO CONTENT */}
         <div className="min-w-0">
-          <div className="font-heading text-[13px] font-bold tracking-[0.08em] uppercase text-cyan mb-[18px]">
+          <div className="font-heading text-[12px] font-bold tracking-[0.08em] uppercase text-cyan mb-3">
             AI-Powered Exam Preparation
           </div>
           <h1
-            className="font-heading font-extrabold tracking-[-0.02em] leading-[1.08] text-navy mb-[22px]"
+            className="font-heading font-extrabold tracking-[-0.02em] leading-[1.08] text-navy mb-4"
             style={{ fontSize: h1Size }}
           >
             Practice like it's exam day.
@@ -65,17 +65,17 @@ export default function Hero() {
             analysis, and a clear path to improve — for every major exam in India.
           </p>
 
-          <div className="flex flex-wrap gap-4 mb-8">
+          <div className="flex flex-wrap gap-3 mb-7">
             <a
               href="#practice"
-              className="group h-[52px] px-7 bg-green text-white rounded-full flex items-center gap-2 font-body text-[15px] font-semibold tracking-[0.01em] shadow-[0_2px_8px_rgba(95,174,106,0.28)] hover:bg-green-dark hover:shadow-[0_5px_16px_rgba(95,174,106,0.4)] hover:-translate-y-px active:bg-green-darker active:scale-[0.97] transition-all focus:outline-none focus:shadow-[0_0_0_3px_rgba(95,174,106,0.35)]"
+              className="group h-11 px-6 bg-green text-white rounded-full flex items-center gap-2 font-body text-[14px] font-semibold tracking-[0.01em] shadow-[0_2px_8px_rgba(95,174,106,0.28)] hover:bg-green-dark hover:shadow-[0_5px_16px_rgba(95,174,106,0.4)] hover:-translate-y-px active:bg-green-darker active:scale-[0.97] transition-all focus:outline-none focus:shadow-[0_0_0_3px_rgba(95,174,106,0.35)]"
             >
               Start Practicing
               <ArrowIcon color="#FFFFFF" className="transition-transform group-hover:translate-x-[3px]" />
             </a>
             <a
               href="#exams"
-              className="h-[52px] px-7 bg-white text-navy border-[1.5px] border-navy rounded-full flex items-center font-body text-[15px] font-semibold hover:bg-surface active:bg-[#EEF0F3] transition-colors focus:outline-none focus:shadow-[0_0_0_3px_rgba(23,40,74,0.18)]"
+              className="h-11 px-6 bg-white text-navy border-[1.5px] border-navy rounded-full flex items-center font-body text-[14px] font-semibold hover:bg-surface active:bg-[#EEF0F3] transition-colors focus:outline-none focus:shadow-[0_0_0_3px_rgba(23,40,74,0.18)]"
             >
               Explore Exams
             </a>
