@@ -1,6 +1,7 @@
 import type { Request, Response, NextFunction } from "express";
-import { AppError } from "../../utils/errors/AppError";
-import { logger } from "../../utils/logger/logger";
+import { AppError } from "../../utils/errors/AppError.js";
+import { logger } from "../../utils/logger/logger.js";
+import { success } from "zod";
 /**
  * checks if the error is instance of AppError or Error class or is unknown and sends the response accordingly
  * @param err
@@ -13,7 +14,7 @@ export const errorHandler = (
   err: unknown,
   _req: Request,
   res: Response,
-  next: NextFunction,
+  _next: NextFunction,
 ) => {
   if (err instanceof AppError) {
     logger.warn({ err, statusCode: err.statusCode }, err.message);
@@ -31,8 +32,9 @@ export const errorHandler = (
     });
   }
 
-  logger.warn({ err }, "UNKOWN THROWN VALUE");
+  logger.warn({ err }, "UNKNOWN THROWN VALUE");
   return res.status(500).json({
+    success: false,
     message: "INTERNAL SERVER ERROR",
   });
 };

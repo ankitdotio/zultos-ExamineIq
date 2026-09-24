@@ -1,6 +1,4 @@
 import dotenv from "dotenv";
-import { resolve } from "node:path";
-import path from "node:path";
 import { z } from "zod";
 
 dotenv.config();
@@ -19,6 +17,9 @@ const envSchema = z.object({
   LOG_LEVEL: z
     .enum(["fatal", "error", "warn", "info", "debug", "trace"])
     .default("info"),
+
+  SUPABASE_URL: z.string().min(1),
+  SUPABASE_SECRET_KEY: z.string().min(1),
 });
 
 export const env = envSchema.parse(process.env);

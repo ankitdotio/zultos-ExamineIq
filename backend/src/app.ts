@@ -1,11 +1,10 @@
 import express from "express";
 import cors from "cors";
 import helmet from "helmet";
-import { config } from "dotenv";
-import { errorHandler } from "./middleware/error/errorHandler.middleware";
-import { env } from "./config/env";
-import { globalLimiter } from "./utils/rateLimiter/rateLimiter";
-import { httpLogger } from "./utils/logger/httpLogger";
+import { errorHandler } from "./middleware/error/errorHandler.middleware.js";
+import { env } from "./config/env.js";
+import { globalLimiter } from "./utils/rateLimiter/rateLimiter.js";
+import { httpLogger } from "./utils/logger/httpLogger.js";
 
 export const app = express();
 app.use(httpLogger);
@@ -18,7 +17,7 @@ app.use(
     credentials: true,
   }),
 );
-app.use(express.json());
+app.use(express.json({ limit: "1mb" }));
 
 app.get("/health", (_req, res) => {
   res.json({

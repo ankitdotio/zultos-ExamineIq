@@ -3,8 +3,14 @@
   "version": "1.0.0",
   "description": "",
   "license": "ISC",
-  "scripts": {},
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch ./src/index.ts",
+    "db:migrate": "tsx ./scripts/db-migrate.ts",
+    "scraper:test": "tsx ./scripts/test-scraper.ts"
+  },
   "dependencies": {
+    "@supabase/supabase-js": "^2.116.0",
     "@types/pg": "^8.23.1",
     "cheerio": "^1.2.0",
     "cors": "^2.8.6",
@@ -12,6 +18,7 @@
     "express": "^5.2.1",
     "express-rate-limit": "^8.7.0",
     "helmet": "^8.3.0",
+    "pdf-parse": "^2.4.5",
     "pg": "^8.23.0",
     "pino": "^10.3.1",
     "pino-http": "^11.0.0",

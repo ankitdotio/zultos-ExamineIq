@@ -1,12 +1,10 @@
-import { logger } from "./utils/logger/logger";
+import { logger } from "./utils/logger/logger.js";
 
-import { app } from "./app";
-import { env } from "./config/env";
+import { app } from "./app.js";
+import { env } from "./config/env.js";
+import { closePool } from "./db/connection.js";
 
 const PORT = env.PORT;
-if (!PORT) {
-  throw new Error("APP PORT IS NOT SET IN .ENV");
-}
 
 const server = app.listen(PORT, () => {
   logger.info(`APP IS LISTENING ON PORT - ${PORT}`);
@@ -15,8 +13,11 @@ const server = app.listen(PORT, () => {
 const shutdown = (signal: string) => {
   logger.info({ signal }, "Shutdown signal received");
 
-  server.close(() => {
-    logger.info("HTTP server closed");
+  server.close(async () => {
+    logger.info("HTTP SERVER CLOSED");
+
+    await closePool();
+    logger.info("DATABASE POOL CLOSED");
     process.exit(0);
   });
 };
